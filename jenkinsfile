@@ -2,13 +2,11 @@ node{
 
 
 stage("Buikld Docker") {
-	steps {
 	catchError(buildResult : 'SUCCESS', stageResult: 'FAILURE') {
 		script{
 			load("first.groovy").buildDocker(par1, par2)
 			}
 		}
-	}
 
 }
 }
