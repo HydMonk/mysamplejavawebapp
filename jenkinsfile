@@ -1,8 +1,6 @@
 node{
 checkout scm
 //other comands if you have
-
-def runner = load pwd() + /first.groovy'
+def runner = load pwd() + '/first.groovy'
 runner.whateverMethod(arg1,arg2)
-
 }
