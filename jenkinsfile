@@ -1,17 +1,6 @@
-def modules = [:]
-pipeline {
-	agent any
-	stages {
-		stage('Test'){
-			steps{
-				checkout scm
-				script{
-					module.first = load "first.groovy"
-					module.first.buildDocker()
-				}
-			}
-			
-		}
-	}
+def exampleModule
+node{
+	checkout scm
+	firstModule - load "first.groovy"
 }
-
+firstModule.buildDocker()
