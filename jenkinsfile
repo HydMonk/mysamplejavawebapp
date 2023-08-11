@@ -1,13 +1,16 @@
-node{
-
-
-stage("Buikld Docker") {
-	catchError(buildResult : 'SUCCESS', stageResult: 'FAILURE') {
-		script{
-			def firstModule = load("first.groovy")
-			firstModule.buildDocker()
+def modules = [:]
+pipeline {
+	agent any
+	stages {
+		stage('Test'){
+			steps{
+				script{
+					module.first = load "first.groovy"
+					module.first.buildDocker()
+				}
 			}
+			
 		}
+	}
+}
 
-}
-}
