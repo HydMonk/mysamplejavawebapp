@@ -1,10 +1,7 @@
 node{
-checkout scm
-//other comands if you have
-
 
 stage("Buikld Docker") {
-	steps{
+	steps {
 	catchError(buildResult : 'SUCCESS', stageResult: 'FAILURE') {
 		script{
 			first.buildDocker(par1, par2)
@@ -12,4 +9,5 @@ stage("Buikld Docker") {
 		}
 	}
 
+}
 }
