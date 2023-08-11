@@ -4,6 +4,7 @@ pipeline {
 	stages {
 		stage('Test'){
 			steps{
+				checkout scm
 				script{
 					module.first = load "first.groovy"
 					module.first.buildDocker()
