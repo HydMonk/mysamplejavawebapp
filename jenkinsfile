@@ -1,6 +1,15 @@
 node{
 checkout scm
 //other comands if you have
-def runner = load pwd() + '/first.groovy'
-runner.whateverMethod(arg1,arg2)
+
+
+stage("Buikld Docker") {
+	steps{
+	catchError(buildResult : 'SUCCESS', stageResult: 'FAILURE') {
+		script{
+			first.buildDocker(par1, par2)
+			}
+		}
+	}
+
 }
