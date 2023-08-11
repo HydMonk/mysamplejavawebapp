@@ -1,6 +1,6 @@
 def exampleModule
 node{
 	checkout scm
-	firstModule - load "first.groovy"
+	firstModule = load "first.groovy"
 }
 firstModule.buildDocker()
